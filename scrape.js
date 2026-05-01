@@ -8,7 +8,8 @@ async function scrapeAnnouncements() {
     try {
         browser = await puppeteer.launch({
             headless: 'new',
-            args: ['--no-sandbox', '--disable-setuid-sandbox']
+            ignoreHTTPSErrors: true,
+            args: ['--no-sandbox', '--disable-setuid-sandbox', '--ignore-certificate-errors']
         });
         
         const page = await browser.newPage();
@@ -19,30 +20,26 @@ async function scrapeAnnouncements() {
         await page.goto('https://ktu.edu.in/Menu/announcements', { waitUntil: 'networkidle2', timeout: 60000 });
         
         console.log('Waiting for content to render...');
-        await page.waitForSelector('.card', { timeout: 30000 });
+        await page.waitForSelector('h6.f-w-bold', { timeout: 30000 });
+        
+        // Give it a few extra seconds for React to finish rendering all items
+        await new Promise(r => setTimeout(r, 5000));
         
         console.log('Extracting announcements...');
         const announcements = await page.evaluate(() => {
             const results = [];
-            const cards = document.querySelectorAll('.card');
+            const titles = document.querySelectorAll('h6.f-w-bold');
             
-            cards.forEach(card => {
-                const titleEl = card.querySelector('h6, h5, .card-title, strong');
-                if (!titleEl) return;
-                
+            titles.forEach(titleEl => {
                 const title = titleEl.innerText.trim();
+                const container = titleEl.closest('.row');
+                if (!container) return;
                 
-                const dateEl = card.querySelector('.text-danger, p.mb-1, span.text-muted');
-                let date = dateEl ? dateEl.innerText.trim() : '';
-                date = date.replace(/calendar_today/i, '').trim();
+                const dateEl = container.querySelector('.fa-calendar')?.parentElement;
+                const date = dateEl ? dateEl.innerText.trim() : '';
                 
-                const linkEl = card.querySelector('a.btn, a[href*="attachment"], a[href*=".pdf"]');
-                let link = linkEl ? linkEl.getAttribute('href') : null;
-                if (link && link.startsWith('/')) {
-                    link = 'https://ktu.edu.in' + link;
-                }
-                
-                const isNew = card.innerHTML.toLowerCase().includes('new');
+                const link = 'https://ktu.edu.in/Menu/announcements';
+                const isNew = container.innerHTML.toLowerCase().includes('new');
                 
                 if (title && !title.includes('Quick Links') && !title.includes('Contact')) {
                     results.push({ title, date, link, isNew });
