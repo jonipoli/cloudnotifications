@@ -1,0 +1,12 @@
+{
+  "name": "cloudnotifications",
+  "version": "1.0.0",
+  "description": "KTU Announcements Scraper",
+  "main": "scrape.js",
+  "scripts": {
+    "start": "node scrape.js"
+  },
+  "dependencies": {
+    "puppeteer": "^22.0.0"
+  }
+}
