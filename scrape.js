@@ -2,6 +2,29 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 
+function isBTechRelevant(title) {
+    if (!title) return false;
+    const t = title.toLowerCase();
+    if (t.includes('b.tech') || t.includes('btech') || t.includes('b. tech')) return true;
+    
+    const nonBTech = [
+        /\bm\.?tech\b/i,
+        /\bb\.?arch\b/i,
+        /\bm\.?arch\b/i,
+        /\bmca\b/i,
+        /\bmba\b/i,
+        /\bb\.?des\b/i,
+        /\bm\.?des\b/i,
+        /\bph\.?d\b/i,
+        /\bm\.?plan\b/i,
+        /\bb\.?plan\b/i,
+        /\bpg-valuation\b/i,
+        /\bvaluation\s*\(pg\)/i
+    ];
+    
+    return !nonBTech.some(regex => regex.test(t));
+}
+
 async function scrapeAnnouncements() {
     console.log('Starting KTU Announcements Scraper...');
     let browser;
@@ -39,7 +62,7 @@ async function scrapeAnnouncements() {
         console.log('Extracting announcements from Page 1...');
         const allAnnouncements = [];
         
-        for (let p = 1; p <= 3; p++) {
+        for (let p = 1; p <= 5; p++) {
             console.log(`Scraping Page ${p}...`);
             const pageData = await page.evaluate(() => {
                 const results = [];
@@ -64,7 +87,7 @@ async function scrapeAnnouncements() {
             
             allAnnouncements.push(...pageData);
             
-            if (p < 3) {
+            if (p < 5) {
                 const nextButton = await page.$("a[aria-label='Next page']");
                 if (nextButton) {
                     const firstTitleBefore = await page.evaluate(() => document.querySelector('h6.f-w-bold')?.innerText);
@@ -83,10 +106,11 @@ async function scrapeAnnouncements() {
             }
         }
         
-        console.log(`Total announcements found: ${allAnnouncements.length}`);
+        const btechAnnouncements = allAnnouncements.filter(item => isBTechRelevant(item.title));
+        console.log(`Total announcements scraped: ${allAnnouncements.length} | Kept B.Tech: ${btechAnnouncements.length}`);
         const outputPath = path.join(__dirname, 'announcements.json');
-        fs.writeFileSync(outputPath, JSON.stringify(allAnnouncements, null, 2));
-        console.log(`Successfully saved announcements to ${outputPath}`);
+        fs.writeFileSync(outputPath, JSON.stringify(btechAnnouncements, null, 2));
+        console.log(`Successfully saved ${btechAnnouncements.length} B.Tech announcements to ${outputPath}`);
         
     } catch (error) {
         console.error('Error scraping announcements:', error);
