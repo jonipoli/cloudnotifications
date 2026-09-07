@@ -5,19 +5,19 @@ const path = require('path');
 function isBTechRelevant(title) {
     if (!title) return false;
     const t = title.toLowerCase();
-    if (t.includes('b.tech') || t.includes('btech') || t.includes('b. tech')) return true;
+    if (t.includes('b.tech') || t.includes('btech') || t.includes('b. tech') || /\bb[\s.]*tech\b/i.test(t)) return true;
     
     const nonBTech = [
-        /\bm\.?tech\b/i,
-        /\bb\.?arch\b/i,
-        /\bm\.?arch\b/i,
+        /\bm[\s.]*tech\b/i,
+        /\bb[\s.]*arch\b/i,
+        /\bm[\s.]*arch\b/i,
         /\bmca\b/i,
         /\bmba\b/i,
-        /\bb\.?des\b/i,
-        /\bm\.?des\b/i,
-        /\bph\.?d\b/i,
-        /\bm\.?plan\b/i,
-        /\bb\.?plan\b/i,
+        /\bb[\s.]*des\b/i,
+        /\bm[\s.]*des\b/i,
+        /\bph[\s.]*d\b/i,
+        /\bm[\s.]*plan\b/i,
+        /\bb[\s.]*plan\b/i,
         /\bpg-valuation\b/i,
         /\bvaluation\s*\(pg\)/i
     ];
