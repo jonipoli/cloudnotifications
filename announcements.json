@@ -1,11 +1,5 @@
 [
   {
-    "title": "Notification - Result Publication / Answer Book Copy and Revaluation request submission -B.Tech S5 (WP) (S) Exam June 2026 (2019 Scheme)-Reg",
-    "date": "Monday, August 31, 2026",
-    "link": "https://ktu.edu.in/Menu/announcements",
-    "isNew": false
-  },
-  {
     "title": "KTU(ACADEMIC) – Eligibility for admission to Engineering programmes of students who have acquired Plus Two qualification partly through the National Institute of Open Schooling (NIOS) – Orders issued",
     "date": "Thursday, September 3, 2026",
     "link": "https://ktu.edu.in/Menu/announcements",
@@ -32,6 +26,18 @@
   {
     "title": "KTU - Examination - Valuation(UG) - Supplementary Exam registration for BHMCT S8 (S) Exam September 2026 (2018 Scheme)",
     "date": "Tuesday, September 8, 2026",
+    "link": "https://ktu.edu.in/Menu/announcements",
+    "isNew": false
+  },
+  {
+    "title": "Extension of Course Duration",
+    "date": "Wednesday, September 9, 2026",
+    "link": "https://ktu.edu.in/Menu/announcements",
+    "isNew": true
+  },
+  {
+    "title": "Notification - Result Publication / Answer Book Copy and Revaluation request submission -B.Tech S5 (WP) (S) Exam June 2026 (2019 Scheme)-Reg",
+    "date": "Monday, August 31, 2026",
     "link": "https://ktu.edu.in/Menu/announcements",
     "isNew": false
   },
@@ -64,12 +70,6 @@
     "date": "Monday, August 17, 2026",
     "link": "https://ktu.edu.in/Menu/announcements",
     "isNew": true
-  },
-  {
-    "title": "Result Notification - B.Tech S7 (PT) (S, FE) Exam Jan 2026 (2015 Scheme)",
-    "date": "Thursday, August 6, 2026",
-    "link": "https://ktu.edu.in/Menu/announcements",
-    "isNew": false
   },
   {
     "title": "B.Tech S5 (S,FE) Exam June 2026 (2019 Scheme)",
@@ -132,8 +132,8 @@
     "isNew": false
   },
   {
-    "title": "KTU - Examination - Valuation(UG) - Result publication of B.Tech S1 (S,FE) S2 (S,FE) Exam May 2026 (2019 Scheme)",
-    "date": "Saturday, July 25, 2026",
+    "title": "Result Notification - B.Tech S7 (PT) (S, FE) Exam Jan 2026 (2015 Scheme)",
+    "date": "Thursday, August 6, 2026",
     "link": "https://ktu.edu.in/Menu/announcements",
     "isNew": false
   },
