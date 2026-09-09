@@ -1,11 +1,5 @@
 [
   {
-    "title": "KTU(ACADEMIC) – Eligibility for admission to Engineering programmes of students who have acquired Plus Two qualification partly through the National Institute of Open Schooling (NIOS) – Orders issued",
-    "date": "Thursday, September 3, 2026",
-    "link": "https://ktu.edu.in/Menu/announcements",
-    "isNew": false
-  },
-  {
     "title": "Extension of the last date for receipt of applications to various statutory and administrative positions up to 17.09.2026",
     "date": "Monday, August 10, 2026",
     "link": "https://ktu.edu.in/Menu/announcements",
@@ -36,8 +30,20 @@
     "isNew": true
   },
   {
+    "title": "Exam Registration for the B.Tech S8 (PT) (S,FE) Exam, September 2026 (2019 Scheme)",
+    "date": "Wednesday, September 9, 2026",
+    "link": "https://ktu.edu.in/Menu/announcements",
+    "isNew": false
+  },
+  {
     "title": "Notification - Result Publication / Answer Book Copy and Revaluation request submission -B.Tech S5 (WP) (S) Exam June 2026 (2019 Scheme)-Reg",
     "date": "Monday, August 31, 2026",
+    "link": "https://ktu.edu.in/Menu/announcements",
+    "isNew": false
+  },
+  {
+    "title": "KTU(ACADEMIC) – Eligibility for admission to Engineering programmes of students who have acquired Plus Two qualification partly through the National Institute of Open Schooling (NIOS) – Orders issued",
+    "date": "Thursday, September 3, 2026",
     "link": "https://ktu.edu.in/Menu/announcements",
     "isNew": false
   },
@@ -70,12 +76,6 @@
     "date": "Monday, August 17, 2026",
     "link": "https://ktu.edu.in/Menu/announcements",
     "isNew": true
-  },
-  {
-    "title": "B.Tech S5 (S,FE) Exam June 2026 (2019 Scheme)",
-    "date": "Thursday, August 6, 2026",
-    "link": "https://ktu.edu.in/Menu/announcements",
-    "isNew": false
   },
   {
     "title": "KTU - Examination - Valuation(UG) - Result publication of B.Tech S4 (WP) (R) Exam April 2026 (2024 Scheme)",
@@ -138,8 +138,8 @@
     "isNew": false
   },
   {
-    "title": "KTU - Examination(UG-Valuation) - Publication of Results - B.Tech S6 (PT) (S,FE) Exam April 2026 (2019 Scheme)",
-    "date": "Monday, July 27, 2026",
+    "title": "B.Tech S5 (S,FE) Exam June 2026 (2019 Scheme)",
+    "date": "Thursday, August 6, 2026",
     "link": "https://ktu.edu.in/Menu/announcements",
     "isNew": false
   },
